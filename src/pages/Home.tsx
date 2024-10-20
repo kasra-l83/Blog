@@ -1,24 +1,31 @@
-import { GoArrowRight } from "react-icons/go";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 export const HomePage: React.FC= () =>{
     return (
-        <div className="max-w-[1000px] mx-auto flex space-x-7 mb-10">
-            <div className="max-w-[500px] border-2 rounded-md">
-                <img src="img/google.png" className="max-h-48 w-full mb-5"/>
-                <div className="space-y-3 px-6">
-                    <h3 className="text-2xl font-bold">A Search Engine</h3>
-                    <p className="text-gray-500">What if you could look up any information in the world? Webpages, images, videos and more. Google has many features to help you find exactly what you're looking for.</p>
-                    <button className="flex items-center text-[#DC2777] hover:text-[#aa2762]">Learn more <GoArrowRight /></button>
+        <div className="max-w-[1100px] mx-auto flex justify-between items-center mb-10">
+            <div className="flex-col space-y-10">
+                <h1 className="text-5xl font-bold text-lightPurple">Free Modern React Templates for every need.</h1>
+                <p className="text-base font-medium text-[gray]">Easily customizable modern React UI Templates and Components built using TailwindCSS which are also lightweight and simple to setup. All components are modular and fully responsive for great mobile experience as well as big desktop screens. Brand Colors are also fully customizable. Free for personal as well as commercial use.</p>
+                <div className="flex-col space-y-3">
+                    <div className="flex space-x-10">
+                        <li className="flex text-base text-[gray]"><IoMdCheckmarkCircleOutline className="size-5 text-lightPurple mr-1"/>7 Landing Page Demos</li>
+                        <li className="flex text-base text-[gray]"><IoMdCheckmarkCircleOutline className="size-5 text-lightPurple mr-1"/>8 Inner Pages</li>
+                    </div>
+                    <div className="flex space-x-10">
+                        <li className="flex text-base text-[gray]"><IoMdCheckmarkCircleOutline className="size-5 text-lightPurple mr-1"/>52 Components</li>
+                        <li className="flex text-base text-[gray]"><IoMdCheckmarkCircleOutline className="size-5 text-lightPurple mr-1"/>Uses TailwindCSS</li>
+                    </div>
+                    <div className="flex space-x-10">
+                        <li className="flex text-base text-[gray]"><IoMdCheckmarkCircleOutline className="size-5 text-lightPurple mr-1"/>Fully Responsive</li>
+                        <li className="flex text-base text-[gray]"><IoMdCheckmarkCircleOutline className="size-5 text-lightPurple mr-1"/>Fully Customizable</li>
+                    </div>
+                </div>
+                <div className="flex space-x-5">
+                    <button className="text-base py-4 px-10 font-bold bg-lightPurple hover:bg-darkPurple text-[white] rounded-md">Explore Demos</button>
+                    <button className="text-base py-4 px-10 font-bold bg-lightGray hover:bg-darkGray text-[black] rounded-md">View Components</button>
                 </div>
             </div>
-            <div className="max-w-[500px] border-2 rounded-md">
-                <img src="img/time.png" className="max-h-48 w-full mb-5"/>
-                <div className="space-y-3 px-6 mb-5">
-                    <h3 className="text-2xl font-bold">The Time Machine</h3>
-                    <p className="text-gray-500">Imagine being able to travel back in time or to the future. Simple turn the knob to the desired date and press "Go". No more worrying about lost keys or forgotten headphones with this simple yet affordable solution.</p>
-                    <button className="flex items-center text-[#DC2777] hover:text-[#aa2762]">Learn more <GoArrowRight /></button>
-                </div>
-            </div>
+            <img src="img/laptap.png" className="w-[586px] h-60"/>
         </div>
     )
 }

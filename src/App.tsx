@@ -8,6 +8,7 @@ import { PostComments } from "./components/PostComments";
 import { NotFound } from "./pages/NotFound";
 import { UsersPage } from "./pages/Users";
 import { HomePage } from "./pages/Home";
+import { UserById } from "./pages/UserById";
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router= createBrowserRouter(
           <Route path="post/:id/comments" element={<PostComments/>}></Route>
         </Route>
         <Route path="users" element={<UsersPage/>}></Route>
+        <Route path="user/:id" element={<UserById/>}></Route>
         <Route path="*" element={<NotFound/>}></Route>
       </Route>
     </Route>

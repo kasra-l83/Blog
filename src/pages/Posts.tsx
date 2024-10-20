@@ -50,7 +50,7 @@ export const PostsPage: React.FC= () =>{
         <div className="max-w-[1000px] mx-auto">
             <div className="mb-5 space-y-4">
                 <h1 className="text-6xl font-medium">Posts List</h1>
-                <h4 className="text-xl text-gray-400">This is a Post List page</h4>
+                <h4 className="text-xl text-[gray]">This is a Post List page</h4>
             </div>
             {(posts.isLoading || users.isLoading || dataLoading) && (
                 <>
@@ -67,7 +67,7 @@ export const PostsPage: React.FC= () =>{
                         <PostCard key={index} user={el.user} post={el.post}/>
                     )
                 })}
-                <button onClick={() => setPage((prevPage) => prevPage + 1)} className="text-[#DC2777] hover:text-[#aa2762] w-full mb-5">Load More</button>
+                <button onClick={() => setPage((prevPage) => prevPage + 1)} className="text-lightPurple hover:text-darkPurple w-full mb-5">Load More</button>
             </>
         </div>
     )

@@ -28,7 +28,7 @@ export const PostById: React.FC = () => {
     <div className="max-w-[1000px] mx-auto">
       <PostCard user={user.data} post={post.data} extendBody={true}/>
       {
-      !location.pathname.includes("comments") && <Link to={`post/${post.data.id}/comments`}><button className="text-gray-500 ml-5">Comments</button></Link>
+      !location.pathname.includes("comments") && <Link to={`post/${post.data.id}/comments`}><button className="text-darkGray ml-5 hover:text-[gray]">Comments</button></Link>
       }
       <div>
         <Outlet/>

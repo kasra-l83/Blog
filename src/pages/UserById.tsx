@@ -5,7 +5,7 @@ import { AxiosError } from "axios";
 import { fetchSingleUserByIds } from "../api/user.api";
 import { UserCard } from "../components/UserCard";
 
-export const PostById: React.FC = () => {
+export const UserById: React.FC = () => {
   const { id } = useParams();
   const validId = !isNaN(Number(id));
   const location= useLocation()
@@ -28,7 +28,7 @@ export const PostById: React.FC = () => {
     <div className="max-w-[1000px] mx-auto">
       <UserCard user={user.data} post={post.data}/>
       {
-      !location.pathname.includes("comments") && <Link to={`post/${post.data.id}/comments`}><button className="text-gray-500 ml-5">Comments</button></Link>
+      !location.pathname.includes("comments") && <Link to={`post/${post.data.id}/comments`}><button className="text-darkGray ml-5 hover:text-[gray]">Comments</button></Link>
       }
       <div>
         <Outlet/>

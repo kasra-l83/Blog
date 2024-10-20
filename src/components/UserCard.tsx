@@ -9,15 +9,15 @@ interface IUserCardProps {
 export const UserCardSkeleton: React.FC= () =>{
     return (
         <div className="flex justify-between py-12 space-x-5 items-center border-t">
-            <div className="size-32 bg-gray-300 rounded-full"></div>
+            <div className="size-32 bg-lightGray rounded-full"></div>
             <div className="flex-col space-y-2">
-                <div className="w-20 h-6 bg-gray-300 rounded-md"></div>
-                <div className="w-32 h-6 bg-gray-300 rounded-md"></div>
-                <div className="w-52 h-6 bg-gray-300 rounded-md"></div>
+                <div className="w-20 h-6 bg-lightGray rounded-md"></div>
+                <div className="w-32 h-6 bg-lightGray rounded-md"></div>
+                <div className="w-52 h-6 bg-lightGray rounded-md"></div>
             </div>
             <div className="flex-col space-y-2">
-                <div className="w-16 h-5 bg-gray-300 rounded-md"></div>
-                <div className="w-28 h-6 bg-gray-300 rounded-md"></div>
+                <div className="w-16 h-5 bg-lightGray rounded-md"></div>
+                <div className="w-28 h-6 bg-lightGray rounded-md"></div>
             </div>
         </div>
     )

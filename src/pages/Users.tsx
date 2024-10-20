@@ -50,7 +50,7 @@ export const UsersPage: React.FC= () =>{
         <div className="max-w-[600px] mx-auto">
             <div className="mb-5 space-y-4">
                 <h1 className="text-6xl font-medium">Users List</h1>
-                <h4 className="text-xl text-gray-400">This is a User List page</h4>
+                <h4 className="text-xl text-[gray]">This is a User List page</h4>
             </div>
             {(posts.isLoading || users.isLoading || dataLoading) && (
                 <>
@@ -64,12 +64,12 @@ export const UsersPage: React.FC= () =>{
             <>
                 {data.map((el, index) =>{
                     return (
-                        <Link key={index} to={`/post/${el.post.id}`}>
+                        <Link key={index} to={`/user/${el.post.id}`}>
                             <UserCard user={el.user} post={el.post}/>
                         </Link>
                     )
                 })}
-                <button onClick={() => setPage((prevPage) => prevPage + 1)} className="text-[#DC2777] hover:text-[#aa2762] w-full mb-5">Load More</button>
+                <button onClick={() => setPage((prevPage) => prevPage + 1)} className="text-lightPurple hover:text-darkPurple w-full mb-5">Load More</button>
             </>
         </div>
     )
