@@ -7,11 +7,12 @@ import { PostById } from "./pages/PostById";
 import { PostComments } from "./components/PostComments";
 import { NotFound } from "./pages/NotFound";
 import { UsersPage } from "./pages/Users";
+import { HomePage } from "./pages/Home";
 
 const router= createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout/>} errorElement={<ErrorBoundary/>}>
-      <Route index={true} element={<p>Home page</p>}></Route>
+      <Route index={true} element={<HomePage/>}></Route>
       <Route>
         <Route path="posts" element={<PostsPage/>}></Route>
         <Route path="post/:id" element={<PostById/>}>
@@ -27,9 +28,7 @@ const queryClient = new QueryClient();
 function App(){
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </RouterProvider>
+      <RouterProvider router={router}></RouterProvider>
     </QueryClientProvider>
   )
 }

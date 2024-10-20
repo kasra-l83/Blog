@@ -67,7 +67,7 @@ export const PostsPage: React.FC= () =>{
                         <PostCard key={index} user={el.user} post={el.post}/>
                     )
                 })}
-                <button onClick={() => setPage((prevPage) => prevPage + 1)} className="text-[#DC2777] w-full mb-5">Load More</button>
+                <button onClick={() => setPage((prevPage) => prevPage + 1)} className="text-[#DC2777] hover:text-[#aa2762] w-full mb-5">Load More</button>
             </>
         </div>
     )
