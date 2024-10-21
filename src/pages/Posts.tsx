@@ -3,14 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { PostCard, PostCardSkeleton } from "../components/PostCard";
 import { fetchUsersListByIds } from "../api/user.api";
-import { IPost } from "../types/posts.type";
 import { IUser } from "../types/users.type";
 import { listsLimit } from "../utits/config";
-
-interface IData {
-    user: IUser;
-    post: IPost;
-}
+import { IData } from "../types/global.type";
 
 export const PostsPage: React.FC= () =>{
     const [data, setData]= React.useState<IData[]>([]);
@@ -18,17 +13,15 @@ export const PostsPage: React.FC= () =>{
     const [dataLoading, setDataLoading] = React.useState<boolean>(false);
 
     const posts= useQuery({
-        queryKey: ["fetching-posts",page],
+        queryKey: ["posts",page],
         queryFn: () => fetchPostsList({skip: page * listsLimit- listsLimit}),
-        refetchOnWindowFocus: false
     })
     const users= useQuery({
-        queryKey: ["fetching-posts-by-id", (posts.data?.posts || []).map((el) => String(el.userId)).join("")],
+        queryKey: ["postsById", (posts.data?.posts || []).map((el) => String(el.userId)).join("")],
         queryFn: () => fetchUsersListByIds(
             (posts.data?.posts || []).map((el) => Number(el.userId))
         ),
         enabled: posts.isSuccess,
-        refetchOnWindowFocus: false,
     })
 
     React.useEffect(() =>{

@@ -48,3 +48,4 @@ export default tseslint.config({
   },
 })
 ```
+<!-- template link: https://treact.owaiskhan.me/ -->

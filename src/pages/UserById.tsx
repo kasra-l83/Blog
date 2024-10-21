@@ -11,24 +11,24 @@ export const UserById: React.FC = () => {
   const location= useLocation()
 
   const post = useQuery({
-    queryKey: ["fetching-post-info", id],
+    queryKey: ["user", id],
     queryFn: () => fetchPostById(Number(id)),
     enabled: validId,
   })
   const user = useQuery({
-    queryKey: ["fetching-user-by-id", post.data?.userId],
+    queryKey: ["userById", post.data?.userId],
     queryFn: () => fetchSingleUserByIds(Number(post.data?.userId)),
     enabled: post.isSuccess
   })
   if (!validId || (post.error as AxiosError)?.status === 404 || (user.error as AxiosError)?.status === 404){
     return <Navigate to="/404" />;
   }
-  if(!user.isSuccess || !post.isSuccess) return
+  if(!user.isSuccess || !post.isSuccess) return;
   return (
     <div className="max-w-[1000px] mx-auto">
       <UserCard user={user.data} post={post.data}/>
       {
-      !location.pathname.includes("comments") && <Link to={`post/${post.data.id}/comments`}><button className="text-darkGray ml-5 hover:text-[gray]">Comments</button></Link>
+      !location.pathname.includes("comments") && <Link to={`user/${user.data.id}/comments`}><button className="text-darkGray ml-5 hover:text-[gray]">Comments</button></Link>
       }
       <div>
         <Outlet/>

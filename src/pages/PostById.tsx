@@ -11,12 +11,12 @@ export const PostById: React.FC = () => {
   const location= useLocation()
 
   const post = useQuery({
-    queryKey: ["fetching-post-info", id],
+    queryKey: ["post", id],
     queryFn: () => fetchPostById(Number(id)),
     enabled: validId,
   })
   const user = useQuery({
-    queryKey: ["fetching-user-by-id", post.data?.userId],
+    queryKey: ["postById", post.data?.userId],
     queryFn: () => fetchSingleUserByIds(Number(post.data?.userId)),
     enabled: post.isSuccess
   })

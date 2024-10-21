@@ -3,10 +3,5 @@ export interface IPost{
   title: string
   body: string
   tags: Array<string>
-  reactions: {
-    likes: number
-    dislikes: number
-  }
-  views: number
   userId: number
 }

@@ -3,15 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { UserCard, UserCardSkeleton } from "../components/UserCard";
 import { fetchUsersListByIds } from "../api/user.api";
-import { IPost } from "../types/posts.type";
 import { IUser } from "../types/users.type";
 import { listsLimit } from "../utits/config";
 import { Link } from "react-router-dom";
-
-interface IData {
-    user: IUser;
-    post: IPost;
-}
+import { IData } from "../types/global.type";
 
 export const UsersPage: React.FC= () =>{
     const [data, setData]= React.useState<IData[]>([]);
@@ -19,17 +14,15 @@ export const UsersPage: React.FC= () =>{
     const [dataLoading, setDataLoading] = React.useState<boolean>(false);
     
     const posts= useQuery({
-        queryKey: ["fetching-users",page],
-        queryFn: () => fetchPostsList({skip: page * listsLimit- listsLimit}),
-        refetchOnWindowFocus: false,
+        queryKey: ["users",page],
+        queryFn: () => fetchPostsList({skip: page * listsLimit- listsLimit})
     })
     const users= useQuery({
-        queryKey: ["fetching-users-by-id", (posts.data?.posts || []).map((el) => String(el.userId)).join("")],
+        queryKey: ["usersById", (posts.data?.posts || []).map((el) => String(el.userId)).join("")],
         queryFn: () => fetchUsersListByIds(
             (posts.data?.posts || []).map((el) => Number(el.userId))
         ),
-        enabled: posts.isSuccess,
-        refetchOnWindowFocus: false
+        enabled: posts.isSuccess
     })
 
     React.useEffect(() =>{

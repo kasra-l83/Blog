@@ -20,7 +20,9 @@ const router= createBrowserRouter(
           <Route path="post/:id/comments" element={<PostComments/>}></Route>
         </Route>
         <Route path="users" element={<UsersPage/>}></Route>
-        <Route path="user/:id" element={<UserById/>}></Route>
+        <Route path="user/:id" element={<UserById/>}>
+          <Route path="user/:id/comments" element={<PostComments/>}></Route>
+        </Route>
         <Route path="*" element={<NotFound/>}></Route>
       </Route>
     </Route>

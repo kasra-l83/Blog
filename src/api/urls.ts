@@ -9,6 +9,7 @@ export const urls= {
     byId: (id: number) => `/users/${id}`
   },
   comments: {
-    byPostId: (postId: number) => `/comments/post/${postId}`
+    byPostId: (postId: number) => `/comments/post/${postId}`,
+    byUserId: (userId: number) => `/comments/user/${userId}`
   }
 }

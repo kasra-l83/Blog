@@ -4,9 +4,9 @@ import { IUser } from "../types/users.type";
 import { classNames } from "../utits/classNames";
 
 interface IPostCardProps {
-    user: IUser
-    post: IPost
-    extendBody?: boolean
+  user: IUser
+  post: IPost
+  extendBody?: boolean
 }
 
 export const PostCardSkeleton: React.FC= () =>{
@@ -30,7 +30,7 @@ export const PostCardSkeleton: React.FC= () =>{
 export const PostCard: React.FC<IPostCardProps>= ({post ,user, extendBody}) =>{
   return (
     <div className="flex py-12 space-x-5 items-center border-t">
-      <img src={user.image} alt={user.username} />
+      <img src={user.image}/>
       <div className="flex-col">
         <Link to={`/post/${post.id}`}>
           <p className="text-xl font-bold hover:text-lightPurple inline">{post.title}</p>
