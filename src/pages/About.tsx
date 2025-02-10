@@ -7,7 +7,7 @@ function AboutPage() {
   return (
     <section>
       <h1 className="text-3xl font-bold pb-9 border-b sm:text-6xl dark:text-white">About</h1>
-      <div className="pt-8 flex flex-col text-gray-600 gap-8 dark:text-gray-300 xl:flex-row">
+      <div className="py-8 flex flex-col text-gray-600 gap-8 dark:text-gray-300 xl:flex-row">
         <div className="flex flex-col min-w-80 items-center">
           <img src="/avatar.png" alt="Avatar" className="size-48 rounded-full"/>
           <h3 className="text-2xl font-bold text-black pt-4 pb-2 dark:text-white">Tails Azimuth</h3>

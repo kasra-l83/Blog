@@ -21,7 +21,7 @@ function Menu({close}: MenuProps) {
           <a href="#" className="hover:text-purple-500">Tags</a>
         </li>
         <li>
-          <a href="#" className="hover:text-purple-500">Projects</a>
+          <a href="/projects" className="hover:text-purple-500">Projects</a>
         </li>
         <li>
           <a href="/about" className="hover:text-purple-500">About</a>
