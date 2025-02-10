@@ -40,7 +40,7 @@ function Header() {
             <a href="#" className="hover:text-purple-500">Projects</a>
           </li>
           <li>
-            <a href="#" className="hover:text-purple-500">About</a>
+            <a href="/about" className="hover:text-purple-500">About</a>
           </li>
         </ul>
         <IoSearch className="text-2xl hover:text-purple-500"/>
