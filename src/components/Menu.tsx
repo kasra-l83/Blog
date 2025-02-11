@@ -12,7 +12,7 @@ function Menu({close}: MenuProps) {
       </button>
       <ul className="flex flex-col gap-y-4 mt-5 text-2xl">
         <li>
-          <a href="#" className="hover:text-purple-500">Home</a>
+          <a href="/" className="hover:text-purple-500">Home</a>
         </li>
         <li>
           <a href="#" className="hover:text-purple-500">Blog</a>
