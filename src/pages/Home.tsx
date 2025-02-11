@@ -3,23 +3,25 @@ import { IPost } from "../types/post"
 import { IData } from "../types/global"
 import { useEffect, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { PostCard, PostCardSkeleton } from "../components/PostCard"
 import { fetchPostsList } from "../apis/posts.api"
 import { fetchUsersListByIds } from "../apis/users.api"
+import { PostCard, PostCardSkeleton } from "../components/PostCard"
 
 function HomePage() {
   const [data, setData]= useState<IData[]>([]);
   
   const posts= useQuery({
     queryKey: ["posts"],
-    queryFn: () => fetchPostsList(1, 5)
+    queryFn: () => fetchPostsList(1, 5),
+    refetchOnWindowFocus: false
   })
   const users= useQuery({
     queryKey: ["usersPostById"],
     queryFn: () => fetchUsersListByIds(
       (posts.data?.posts || []).map((post: IPost) => Number(post.userId))
     ),
-    enabled: posts.isSuccess
+    enabled: posts.isSuccess,
+    refetchOnWindowFocus: false
   })
 
   useEffect(() =>{
@@ -43,8 +45,8 @@ function HomePage() {
           <PostCardSkeleton key={index}/>
         ))
       )}
-      {data.map((el, index) =>(
-        <PostCard key={index} user={el.user} post={el.post}/>
+      {data.map((el) =>(
+        <PostCard key={el.user.id} user={el.user} post={el.post}/>
       ))}
     </>
   )

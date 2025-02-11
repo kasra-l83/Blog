@@ -2,7 +2,7 @@ import { urls } from "./urls"
 import { IUser } from "../types/user"
 import { generateClient } from "./client"
 
-export const fetchUsersListByIds= async (ids) =>{
+export const fetchUsersListByIds= async (ids: Array<number>) =>{
     const client= generateClient();
     const responses= await Promise.all
     (ids.map((id: number) =>{

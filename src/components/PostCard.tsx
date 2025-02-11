@@ -35,7 +35,7 @@ export const PostCard: React.FC<IPostCardProps>= ({post ,user, extendBody}) =>{
         <ul className="flex gap-x-3">
           {post.tags.map((tag, index) =>(
             <li key={index}>
-              <button className="capitalize text-purple-500 font-medium hover:text-purple-700">{tag}</button>
+              <button className="uppercase text-purple-500 font-medium hover:text-purple-700">{tag}</button>
             </li>
           ))}
         </ul>
