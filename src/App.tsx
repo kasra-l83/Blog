@@ -1,5 +1,6 @@
 import TagsPage from "./pages/Tags"
 import HomePage from "./pages/Home"
+import { Blog } from "./pages/Blog"
 import AboutPage from "./pages/About"
 import { TagLayout } from "./layouts/tag"
 import ProjectsPage from "./pages/Projects"
@@ -21,6 +22,9 @@ const router= createBrowserRouter(
         <Route path=":tag" element={<TagLayout/>}>
           <Route index={true} element={<PostByTag/>} />
         </Route>
+      </Route>
+      <Route path="/blog" element={<TagLayout/>}>
+        <Route index={true} element={<Blog/>} />
       </Route>
     </Route>
   )

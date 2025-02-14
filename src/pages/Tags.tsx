@@ -11,7 +11,7 @@ function TagsPage() {
   
   return (
     <section className="flex flex-col justify-center md:items-center md:flex-row">
-      <h2 className="text-4xl md:text-6xl font-bold p-6 border-b md:border-r md:border-b-0">Tags</h2>
+      <h2 className="text-4xl font-bold p-6 border-b md:text-6xl md:border-r md:border-b-0 dark:text-white">Tags</h2>
       <ul className="flex flex-wrap p-6 gap-y-4">
         {tags.data?.map((tag: string) =>(
           <Link key={tag} to={`/tags/${tag}`}>

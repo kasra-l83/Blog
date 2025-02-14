@@ -18,13 +18,12 @@ export const TagLayout: React.FC= () =>{
         </Link>
         <ul className="flex flex-col gap-y-4">
           {tags.data?.map((tag: string) =>(
-            <Link key={tag} to={`/tags/${tag}`}>
-              <li
-                className="text-sm font-medium uppercase text-gray-500 px-3 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-500"
-              >
-                {tag}
-              </li>
-            </Link>
+            <li
+              key={tag}
+              className="text-sm font-medium uppercase text-gray-500 px-3 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-500"
+            >
+              <a href={`/tags/${tag}`}>{tag}</a>
+            </li>
           ))}
         </ul>
       </nav>

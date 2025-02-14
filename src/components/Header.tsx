@@ -39,7 +39,7 @@ function Header() {
       <span className="font-medium flex gap-x-7 items-center dark:text-white">
         <ul className="gap-x-7 hidden sm:flex">
           <li>
-            <a href="#" className="hover:text-purple-500">Blog</a>
+            <a href="/blog" className="hover:text-purple-500">Blog</a>
           </li>
           <li>
             <a href="/tags" className="hover:text-purple-500">Tags</a>
