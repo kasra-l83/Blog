@@ -2,21 +2,24 @@ import React from "react"
 import { IUser } from "../types/user"
 import { IPost } from "../types/post"
 import { IData } from "../types/global"
+import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
-import { fetchPostsList } from "../apis/posts.api"
+import { fetchPostsListByTag } from "../apis/posts.api"
 import { fetchUsersListByIds } from "../apis/users.api"
 import { PostCard, PostCardSkeleton } from "../components/PostCard"
 
-function HomePage() {
+export const PostByTag: React.FC= () =>{
+  const [perPage, setPerPage]= React.useState<number>(3);
   const [data, setData]= React.useState<IData[]>([]);
-  
+  const { tag }= useParams();
+
   const posts= useQuery({
-    queryKey: ["posts"],
-    queryFn: () => fetchPostsList(5, 1),
+    queryKey: ["postsByTag", tag, perPage],
+    queryFn: () => fetchPostsListByTag(perPage, 1, tag as string),
     refetchOnWindowFocus: false
   })
   const users= useQuery({
-    queryKey: ["usersPostById"],
+    queryKey: ["usersPostById", posts.data?.posts],
     queryFn: () => fetchUsersListByIds(
       (posts.data?.posts || []).map((post: IPost) => Number(post.userId))
     ),
@@ -33,22 +36,27 @@ function HomePage() {
       ) as IUser
       newData.push({ user, post })
     }
-    setData(newData)
+    setData(newData);
   }, [posts.isSuccess, users.isSuccess, posts.data, users.data])
 
   return (
-    <>
-      <h1 className="text-3xl font-bold dark:text-white sm:text-6xl">Latest</h1>
-      <h3 className="pt-5 pb-8 border-b text-gray-500 text-lg dark:border-gray-700">A blog created with React and Tailwind.css</h3>
+    <section>
+      <h1 className="text-3xl font-bold sm:hidden">{tag}</h1>
       {posts.isLoading || users.isLoading && (
-        Array.from({length: 5}, (_, index) =>(
+        Array.from({length: 3}, (_, index) =>(
           <PostCardSkeleton key={index}/>
         ))
       )}
       {data.map((el) =>(
-        <PostCard key={el.user.id} user={el.user} post={el.post}/>
+        <PostCard key={el.post.id} user={el.user} post={el.post}/>
       ))}
-    </>
+      {posts.isSuccess && users.isSuccess && (
+        <button onClick={() => setPerPage(perPage+ 3)}
+          className="text-purple-500 w-full mt-5 hover:text-purple-700 dark:hover:text-purple-300"
+        >
+          Load More
+        </button>
+      )}
+    </section>
   )
 }
-export default HomePage

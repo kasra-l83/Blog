@@ -1,11 +1,12 @@
+import TagsPage from "./pages/Tags"
 import HomePage from "./pages/Home"
 import AboutPage from "./pages/About"
-import { MainLayout } from "./layouts/main"
+import { TagLayout } from "./layouts/tag"
 import ProjectsPage from "./pages/Projects"
+import { MainLayout } from "./layouts/main"
 import { QueryClient ,QueryClientProvider } from "@tanstack/react-query"
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom"
-import { TagLayout } from "./layouts/tag"
-import TagsPage from "./pages/Tags"
+import { PostByTag } from "./pages/PostByTag"
 
 const queryClient= new QueryClient();
 
@@ -17,8 +18,8 @@ const router= createBrowserRouter(
       <Route path="projects" element={<ProjectsPage/>}></Route>
       <Route path="tags">
         <Route index={true} element={<TagsPage/>} />
-        <Route path=":id" element={<TagLayout/>}>
-          <Route index={true} element={<AboutPage/>} />
+        <Route path=":tag" element={<TagLayout/>}>
+          <Route index={true} element={<PostByTag/>} />
         </Route>
       </Route>
     </Route>
