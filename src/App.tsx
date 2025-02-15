@@ -11,6 +11,7 @@ import { ErrorBoundary } from "./components/ErrorBoundary"
 import { QueryClient ,QueryClientProvider } from "@tanstack/react-query"
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom"
 import { UserPage } from "./pages/User"
+import { UserByIdPage } from "./pages/UserById"
 
 const queryClient= new QueryClient();
 
@@ -31,6 +32,7 @@ const router= createBrowserRouter(
         <Route path=":id" element={<BlogByIdPage/>}></Route>
       </Route>
       <Route path="/users" element={<UserPage/>}></Route>
+      <Route path="/users/:id" element={<UserByIdPage/>}></Route>
     </Route>
   )
 )

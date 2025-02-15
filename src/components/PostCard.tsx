@@ -30,7 +30,9 @@ export const PostCardSkeleton: React.FC= () =>{
 export const PostCard: React.FC<IPostCardProps>= ({post ,user, extendBody}) =>{
   return (
     <div className="flex flex-col gap-y-5 py-12 gap-x-12 items-center border-b sm:flex-row lg:gap-x-24 dark:border-gray-700">
-      <img src={user.image}/>
+      <Link to={`/users/${user.id}`}>
+        <img src={user.image}/>
+      </Link>
       <div className="flex-col">
         <h2 className="text-xl font-bold dark:text-white">{post.title}</h2>
         <ul className="flex gap-x-3 flex-wrap">

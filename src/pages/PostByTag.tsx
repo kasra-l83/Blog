@@ -2,6 +2,7 @@ import React from "react"
 import { IUser } from "../types/user"
 import { IPost } from "../types/post"
 import { IData } from "../types/global"
+import { NotFoundPage } from "./NotFound"
 import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import { fetchPostsListByTag } from "../apis/posts.api"
@@ -12,6 +13,8 @@ export const PostByTag: React.FC= () =>{
   const [perPage, setPerPage]= React.useState<number>(3);
   const [data, setData]= React.useState<IData[]>([]);
   const { tag }= useParams();
+  
+  if(!isNaN(tag) || tag.trim()=== "") return <NotFoundPage/>
 
   const posts= useQuery({
     queryKey: ["postsByTag", tag, perPage],
