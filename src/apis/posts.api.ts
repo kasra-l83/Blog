@@ -13,16 +13,21 @@ export const fetchPostsList= async (page: number, perPage: number) =>{
 }
 export const fetchTagsList= async () =>{
     const client= generateClient();
-    const response= await client.get(urls.posts.tags)
+    const response= await client.get(urls.posts.tag);
     return response.data;
 }
 export const fetchPostsListByTag= async (page: number, perPage: number, tag: string) =>{
     const client= generateClient();
-    const response= await client.get(urls.posts.tag(tag), {
+    const response= await client.get(urls.posts.byTag(tag), {
         params: {
             limit: page,
             skip: perPage
         }
     })
+    return response.data;
+}
+export const fetchPostsById= async (id: number) =>{
+    const client= generateClient();
+    const response= await client.get(urls.posts.byId(id));
     return response.data;
 }

@@ -5,6 +5,7 @@ import AboutPage from "./pages/About"
 import { TagLayout } from "./layouts/tag"
 import ProjectsPage from "./pages/Projects"
 import { MainLayout } from "./layouts/main"
+import BlogByIdPage from "./pages/BlogById"
 import { PostByTag } from "./pages/PostByTag"
 import { QueryClient ,QueryClientProvider } from "@tanstack/react-query"
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom"
@@ -25,6 +26,7 @@ const router= createBrowserRouter(
       </Route>
       <Route path="/blog" element={<TagLayout/>}>
         <Route index={true} element={<Blog/>} />
+        <Route path=":id" element={<BlogByIdPage/>}></Route>
       </Route>
     </Route>
   )

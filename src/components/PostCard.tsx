@@ -43,9 +43,11 @@ export const PostCard: React.FC<IPostCardProps>= ({post ,user, extendBody}) =>{
           ))}
         </ul>
         <p className={`text-gray-500 leading-7 my-5 ${extendBody? "" : "line-clamp-2"}`}>{post.body}</p>
-        <button className="text-purple-500 font-medium flex gap-x-1 hover:text-purple-700 dark:hover:text-purple-300">
-          Read more <MdOutlineArrowRightAlt className="text-xl mt-1"/>
-        </button>
+        <Link to={`/blog/${post.id}`} className={extendBody ? "hidden" : ""}>
+          <button className="text-purple-500 font-medium flex gap-x-1 hover:text-purple-700 dark:hover:text-purple-300">
+            Read more <MdOutlineArrowRightAlt className="text-xl mt-1"/>
+          </button>
+        </Link>
       </div>
     </div>
   )
