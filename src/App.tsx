@@ -10,6 +10,7 @@ import { PostByTag } from "./pages/PostByTag"
 import { ErrorBoundary } from "./components/ErrorBoundary"
 import { QueryClient ,QueryClientProvider } from "@tanstack/react-query"
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom"
+import { UserPage } from "./pages/User"
 
 const queryClient= new QueryClient();
 
@@ -29,6 +30,7 @@ const router= createBrowserRouter(
         <Route index={true} element={<Blog/>} />
         <Route path=":id" element={<BlogByIdPage/>}></Route>
       </Route>
+      <Route path="/users" element={<UserPage/>}></Route>
     </Route>
   )
 )

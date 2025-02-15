@@ -42,6 +42,9 @@ function Header() {
             <a href="/blog" className="hover:text-purple-500">Blog</a>
           </li>
           <li>
+            <a href="/users" className="hover:text-purple-500">Users</a>
+          </li>
+          <li>
             <a href="/tags" className="hover:text-purple-500">Tags</a>
           </li>
           <li>

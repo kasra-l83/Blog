@@ -6,6 +6,7 @@ export const urls= {
     byId: (id: number) => `/posts/${id}`
   },
   users: {
+    list: "/users",
     byId: (id: number) => `users/${id}`
   }
 }
