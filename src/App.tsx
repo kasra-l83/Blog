@@ -7,6 +7,7 @@ import ProjectsPage from "./pages/Projects"
 import { MainLayout } from "./layouts/main"
 import BlogByIdPage from "./pages/BlogById"
 import { PostByTag } from "./pages/PostByTag"
+import { ErrorBoundary } from "./components/ErrorBoundary"
 import { QueryClient ,QueryClientProvider } from "@tanstack/react-query"
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom"
 
@@ -14,7 +15,7 @@ const queryClient= new QueryClient();
 
 const router= createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<MainLayout/>}>
+    <Route path="/" element={<MainLayout/>} errorElement={<ErrorBoundary/>}>
       <Route index={true} element={<HomePage/>}></Route>
       <Route path="about" element={<AboutPage/>}></Route>
       <Route path="projects" element={<ProjectsPage/>}></Route>
