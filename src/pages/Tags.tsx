@@ -6,7 +6,8 @@ function TagsPage() {
   const tags= useQuery({
     queryKey: ["tags"],
     queryFn: fetchTagsList,
-    refetchOnWindowFocus: false
+    refetchOnWindowFocus: false,
+    staleTime: Infinity
   })
   
   return (

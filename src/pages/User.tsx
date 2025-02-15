@@ -1,15 +1,15 @@
 import React from "react"
 import { IUser } from "../types/user"
 import { useQuery } from "@tanstack/react-query"
-import { UserCard, UserCardSkeleton } from "../components/UserCard"
 import { fetchUsersList } from "../apis/users.api"
+import { UserCard, UserCardSkeleton } from "../components/UserCard"
 
 export const UserPage: React.FC= () =>{
-    const [page, setPage] = React.useState<number>(5);
+    const [perpage, setPerPage] = React.useState<number>(5);
 
     const users= useQuery({
-        queryKey: ["users", page],
-        queryFn: () => fetchUsersList(page, 5),
+        queryKey: ["users", perpage],
+        queryFn: () => fetchUsersList(perpage, 0),
         refetchOnWindowFocus: false
     })
 
@@ -24,7 +24,7 @@ export const UserPage: React.FC= () =>{
                 <UserCard key={el.id} user={el}/>
             ))}
             {users.isSuccess && users.data?.limit< users.data?.total && (
-                <button onClick={() => setPage(page+ 5)} 
+                <button onClick={() => setPerPage(perpage+ 5)} 
                     className="text-purple-500 w-full mt-5 hover:text-purple-700 dark:hover:text-purple-300"
                 >
                     Load More

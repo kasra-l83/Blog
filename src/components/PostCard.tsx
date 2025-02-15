@@ -12,7 +12,7 @@ interface IPostCardProps {
 export const PostCardSkeleton: React.FC= () =>{
   return (
     <div className="flex py-12 border-b gap-x-12 lg:gap-x-24 items-center dark:border-gray-700">
-      <div className="size-32 bg-gray-200 rounded-full"></div>
+      <div className="max-w-32 min-w-32 h-32 bg-gray-200 rounded-full"></div>
       <div className="w-full">
         <div className="bg-gray-200 rounded h-6 w-3/6"></div>
         <span className="flex gap-x-3 mt-2">
@@ -31,7 +31,7 @@ export const PostCard: React.FC<IPostCardProps>= ({post ,user, extendBody}) =>{
   return (
     <div className="flex flex-col gap-y-5 py-12 gap-x-12 items-center border-b sm:flex-row lg:gap-x-24 dark:border-gray-700">
       <Link to={`/users/${user.id}`}>
-        <img src={user.image}/>
+        <img src={user.image} className="max-w-32 min-w-32 h-32"/>
       </Link>
       <div className="flex-col">
         <h2 className="text-xl font-bold dark:text-white">{post.title}</h2>
