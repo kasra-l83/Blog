@@ -31,3 +31,8 @@ export const fetchPostsById= async (id: number) =>{
     const response= await client.get(urls.posts.byId(id));
     return response.data;
 }
+export const fetchPostsByUserId= async (id: number) =>{
+    const client= generateClient();
+    const response= await client.get(urls.users.postById(id));
+    return response.data;
+}

@@ -19,7 +19,7 @@ export const CommentCardSkeleton: React.FC= () =>{
 }
 export const CommentCard: React.FC<ICommentCardProps>= ({comment ,user}) =>{
     return (
-        <div className="p-2 border rounded-lg mt-2 flex items-center justify-between">
+        <div className="p-2 border rounded-lg mt-2 flex items-center justify-between dark:text-white dark:border-gray-700">
             <Link to={`/users/${user.id}`}>
                 <img src={user.image} alt="" className="size-10"/>
             </Link>
